@@ -10,13 +10,23 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
+//***Properties Section***\\
+import { PropertiesComponent } from './components/properties/components/properties.component';
+import { PropertiesService } from './components/properties/services/properties.service';
+import { PropertiesBackendService } from './services/properties-backend.service';
+import { HttpPropertiesBackendService } from './services/http-properties-backend.service';
+import { PropertyDetailsComponent } from './components/properties/components/property-details.component';
+
+
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        PropertiesComponent,
+        PropertyDetailsComponent
     ],
     imports: [
         CommonModule,
@@ -27,8 +37,16 @@ import { CounterComponent } from './components/counter/counter.component';
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: 'properties', component: PropertiesComponent },
+            { path: 'properties/new-property', component: PropertyDetailsComponent },
+            { path: 'properties/property-details/:id', component: PropertyDetailsComponent },
+            { path: 'properties/property-update/:id', component: PropertyDetailsComponent },
+            { path: '**', redirectTo: 'properties' }
         ])
+    ],
+    providers: [
+        PropertiesService,
+        { provide: PropertiesBackendService, useClass: HttpPropertiesBackendService }
     ]
 })
 export class AppModuleShared {
