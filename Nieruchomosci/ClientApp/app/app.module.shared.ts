@@ -17,6 +17,11 @@ import { PropertiesBackendService } from './services/properties-backend.service'
 import { HttpPropertiesBackendService } from './services/http-properties-backend.service';
 import { PropertyDetailsComponent } from './components/properties/components/property-details.component';
 
+//***PrimeNG Modules***\\
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/calendar';
+
 
 @NgModule({
     declarations: [
@@ -32,6 +37,9 @@ import { PropertyDetailsComponent } from './components/properties/components/pro
         CommonModule,
         HttpModule,
         FormsModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        CalendarModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },

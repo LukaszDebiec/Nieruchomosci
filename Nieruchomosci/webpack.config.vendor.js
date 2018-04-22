@@ -21,6 +21,10 @@ const nonTreeShakableModules = [
     'es6-shim',
     'event-source-polyfill',
     'jquery',
+    'font-awesome/css/font-awesome.css',
+    'primeng/primeng',
+    'primeng/resources/themes/omega/theme.css',
+    'primeng/resources/primeng.min.css'
 ];
 const allModules = treeShakableModules.concat(nonTreeShakableModules);
 
@@ -32,7 +36,7 @@ module.exports = (env) => {
         resolve: { extensions: [ '.js' ] },
         module: {
             rules: [
-                { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
+                { test: /\.(png|gif|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
             ]
         },
         output: {
